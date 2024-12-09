@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des Albums Photos{% endblock %}
+
+{% block body %}
+    <h1>Liste des Albums Photos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for album_photo in album_photos %}
+            <tr>
+                <td>{{ album_photo.id }}</td>
+                <td>{{ album_photo.titre }}</td>
+                <td>{{ album_photo.description }}</td>
+                <td>
+                    <a href="{{ path('app_album_photo_show', {'id': album_photo.id}) }}" class="btn btn-info">Détails</a>
+                    <a href="{{ path('app_album_photo_edit', {'id': album_photo.id}) }}" class="btn btn-warning">Éditer</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun album trouvé</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_album_photo_new') }}" class="btn btn-primary">Nouveau</a>
+{% endblock %}

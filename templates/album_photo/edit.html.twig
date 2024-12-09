@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier l'Album Photo{% endblock %}
+
+{% block body %}
+    <h1>Modifier l'Album Photo</h1>
+
+    {{ include('album_photo/_form.html.twig') }}
+
+    <a href="{{ path('app_album_photo_index') }}" class="btn btn-secondary">Retourner à la liste</a>
+
+    {{ include('album_photo/_delete_form.html.twig') }}
+{% endblock %}

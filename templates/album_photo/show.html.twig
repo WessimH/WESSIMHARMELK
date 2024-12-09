@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Album Photo{% endblock %}
+
+{% block body %}
+    <h1>Album Photo</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ album_photo.id }}</td>
+            </tr>
+            <tr>
+                <th>Titre</th>
+                <td>{{ album_photo.titre }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ album_photo.description }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_album_photo_index') }}" class="btn btn-secondary">Retourner à la liste</a>
+    <a href="{{ path('app_album_photo_edit', {'id': album_photo.id}) }}" class="btn btn-warning">Éditer</a>
+
+    {{ include('album_photo/_delete_form.html.twig') }}
+{% endblock %}
